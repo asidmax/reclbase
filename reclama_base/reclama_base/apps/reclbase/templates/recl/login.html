@@ -1,0 +1,21 @@
+{% extends 'layout/base.html' %}
+{% load bootstrap4 %}
+
+{% block title %}Вход{% endblock title %}
+{% block content %}
+<div class="alert alert-dark m-5" role="alert">
+    <h2>Вход</h2>
+    {% if user.is_authenticated %}
+        <p>Вы уже прошли авторизацию</p>
+    {% else %}
+        <form method='post'>
+            {% csrf_token %}
+            {% bootstrap_form form layout='horizontal'%}
+            <input type='hidden' name='next' value="{{next}}">
+            {% buttons submit='Войти'%}{% endbuttons %}
+        </form>
+    {% endif %}
+    <a href="{% url 'reclbase:create_user' %}">Зарегистрироваться</a>
+{% endblock content %}
+
+</div>

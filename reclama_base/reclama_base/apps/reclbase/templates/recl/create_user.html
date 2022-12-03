@@ -1,0 +1,13 @@
+{% extends 'layout/base.html' %}
+{% load bootstrap4 %}
+
+{% block title %}Регистрация{% endblock title %}
+{% block content %}
+<div class="alert alert-dark m-5" role="alert">
+    <form method='post'>
+        {%csrf_token%}
+        {%bootstrap_form form layout='horizontal'%}
+        {%buttons submit='Зарегистрироваться'%}{%endbuttons%}
+    </form>
+</div>
+{%endblock%}

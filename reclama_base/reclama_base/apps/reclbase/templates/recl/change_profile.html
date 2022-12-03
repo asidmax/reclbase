@@ -1,0 +1,14 @@
+{% extends 'layout/base.html' %}
+{% load bootstrap4 %}
+{% block title %}Изменение профайла{% endblock title %}
+
+{% block content %}
+<div class="alert alert-dark m-5" role="alert">
+<p>Правка личных данных пользователя {{user.username}}</p>
+<form method="post">
+    {% csrf_token %}
+    {%bootstrap_form form layout="horizontal"%}
+    {%buttons submit='Изменить'%}{% endbuttons %}
+</form>
+</div>
+{% endblock content %}
