@@ -1,0 +1,14 @@
+{% extends 'layout/base.html' %}
+{% block title %}Профиль{% endblock title %}
+
+{% block content %}
+<div class="alert alert-dark m-5" role="alert">
+    <h2>Пользователь {{user.username}}</h2>
+    {% if user.first_name and user.last_name %}
+        <p> Добро пожаловать {{user.first_name}} {{user.last_name}}</p>
+    {%else%}
+        <p>Привет</p>
+    {%endif%}
+    <a href="{% url 'reclbase:change_profile' %}">Изменить профиль</a>
+</div>
+{% endblock content %}
